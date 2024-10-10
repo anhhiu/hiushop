@@ -1,0 +1,682 @@
+definitions:
+  models.ChiTietHD:
+    properties:
+      don_gia:
+        type: number
+      giam_gia:
+        type: number
+      hang_hoa:
+        $ref: '#/definitions/models.HangHoa'
+      hoa_don:
+        $ref: '#/definitions/models.HoaDon'
+      ma_ct:
+        type: integer
+      ma_hd:
+        type: integer
+      ma_hh:
+        type: integer
+      so_luong:
+        type: integer
+    type: object
+  models.HangHoa:
+    properties:
+      don_gia:
+        type: number
+      giam_gia:
+        type: number
+      hinh:
+        type: string
+      loai:
+        $ref: '#/definitions/models.Loai'
+      ma_hh:
+        type: integer
+      ma_loai:
+        type: integer
+      ma_ncc:
+        type: integer
+      mo_ta:
+        type: string
+      mo_ta_don_vi:
+        type: string
+      ngay_sx:
+        type: string
+      nha_cung_cap:
+        $ref: '#/definitions/models.NhaCungCap'
+      so_lan_xem:
+        type: integer
+      ten_alias:
+        type: string
+      ten_hh:
+        type: string
+    type: object
+  models.HoaDon:
+    properties:
+      cach_thanh_toan:
+        type: string
+      cach_van_chuyen:
+        type: string
+      dia_chi:
+        type: string
+      ghi_chu:
+        type: string
+      ho_ten:
+        type: string
+      khach_hang:
+        $ref: '#/definitions/models.KhachHang'
+      ma_hd:
+        type: integer
+      ma_kh:
+        type: integer
+      ma_nv:
+        type: integer
+      ma_trang_thai:
+        type: integer
+      ngay_can:
+        type: string
+      ngay_dat:
+        type: string
+      ngay_giao:
+        type: string
+      nhan_vien:
+        $ref: '#/definitions/models.NhanVien'
+      phi_van_chuyen:
+        type: number
+      trang_thai:
+        $ref: '#/definitions/models.TrangThai'
+    type: object
+  models.KhachHang:
+    properties:
+      dia_chi:
+        type: string
+      dien_thoai:
+        type: string
+      email:
+        type: string
+      gioi_tinh:
+        type: string
+      ho_ten:
+        type: string
+      ma_kh:
+        type: integer
+      ngay_sinh:
+        type: string
+    type: object
+  models.Loai:
+    properties:
+      hinh:
+        type: string
+      ma_loai:
+        type: integer
+      mo_ta:
+        type: string
+      ten_loai:
+        type: string
+      ten_loai_alias:
+        type: string
+    type: object
+  models.NhaCungCap:
+    properties:
+      dia_chi:
+        type: string
+      dien_thoai:
+        type: string
+      email:
+        type: string
+      logo:
+        type: string
+      ma_ncc:
+        type: integer
+      mo_ta:
+        type: string
+      nguoi_lien_lac:
+        type: string
+      ten_cong_ty:
+        type: string
+    type: object
+  models.NhanVien:
+    properties:
+      email:
+        type: string
+      ho_ten:
+        type: string
+      ma_nv:
+        type: integer
+      mat_khau:
+        type: string
+      tai_khoan:
+        type: string
+    type: object
+  models.TrangThai:
+    properties:
+      ma_trang_thai:
+        type: integer
+      mo_ta:
+        type: string
+      ten_trang_thai:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /chitiethoadon/:
+    get:
+      responses: {}
+      summary: Hiển thị tất cả các hóa đơn
+      tags:
+      - Chi tiết hóa đơn
+    post:
+      parameters:
+      - description: ChiTietHD data
+        in: body
+        name: chitiethd
+        required: true
+        schema:
+          $ref: '#/definitions/models.ChiTietHD'
+      responses: {}
+      summary: Thêm hóa đơn chi tiết
+      tags:
+      - Chi tiết hóa đơn
+  /chitiethoadon/{ma_ct}:
+    get:
+      parameters:
+      - description: MaHD
+        in: path
+        name: ma_ct
+        required: true
+        type: integer
+      responses: {}
+      summary: Hiển thị tất cả các chi tiết hóa đơn theo id
+      tags:
+      - Chi tiết hóa đơn
+  /hanghoa/:
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị hàng hóa
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị hàng hóa
+      tags:
+      - Hàng hóa
+    post:
+      consumes:
+      - application/json
+      description: Thêm hàng hóa
+      parameters:
+      - description: HangHoa data
+        in: body
+        name: hanghoa
+        required: true
+        schema:
+          $ref: '#/definitions/models.HangHoa'
+      produces:
+      - application/json
+      responses: {}
+      summary: Thêm hàng hóa
+      tags:
+      - Hàng hóa
+  /hanghoa/{ma_hh}:
+    delete:
+      consumes:
+      - application/json
+      description: Xóa hàng hóa theo mãhàng hóa
+      parameters:
+      - description: MaHH
+        in: path
+        name: ma_hh
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Xóa hàng hóa theo mã hàng hóa
+      tags:
+      - Hàng hóa
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị hàng hóa theo mã hàng hóa
+      parameters:
+      - description: MaHH
+        in: path
+        name: ma_hh
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị hàng hóa theo mã hàng hóa
+      tags:
+      - Hàng hóa
+    put:
+      consumes:
+      - application/json
+      description: Chỉnh sửa hàng hóa theo mã hàng hóa
+      parameters:
+      - description: MaHH
+        in: path
+        name: ma_hh
+        required: true
+        type: integer
+      - description: HangHoa data
+        in: body
+        name: hanghoa
+        required: true
+        schema:
+          $ref: '#/definitions/models.HangHoa'
+      produces:
+      - application/json
+      responses: {}
+      summary: Chỉnh sửa hàng hóa theo mã hàng hóa
+      tags:
+      - Hàng hóa
+  /hoadon/:
+    get:
+      responses: {}
+      summary: Hiển thị tất cả hóa đơn
+      tags:
+      - Hóa đơn
+    post:
+      parameters:
+      - description: HoaDon data
+        in: body
+        name: hoadon
+        required: true
+        schema:
+          $ref: '#/definitions/models.HoaDon'
+      responses: {}
+      summary: Tạo Hóa Đơn
+      tags:
+      - Hóa đơn
+  /hoadon/{ma_hd}:
+    delete:
+      parameters:
+      - description: MaHD
+        in: path
+        name: ma_hd
+        required: true
+        type: integer
+      responses: {}
+      summary: Xóa hóa đơn theo mã hóa đơn
+      tags:
+      - Hóa đơn
+    get:
+      parameters:
+      - description: MaHD
+        in: path
+        name: ma_hd
+        required: true
+        type: integer
+      responses: {}
+      summary: Hiển thị hóa đơn theo mã hóa đơn
+      tags:
+      - Hóa đơn
+    put:
+      parameters:
+      - description: MaHD
+        in: path
+        name: ma_hd
+        required: true
+        type: integer
+      - description: HoaDon data
+        in: body
+        name: hoadon
+        required: true
+        schema:
+          $ref: '#/definitions/models.HoaDon'
+      responses: {}
+      summary: Sửa hóa đơn theo mã hóa đơn
+      tags:
+      - Hóa đơn
+  /khachhang/:
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị khách hàng
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị khách hàng
+      tags:
+      - Khách hàng
+    post:
+      consumes:
+      - application/json
+      description: Thêm khách hàng
+      parameters:
+      - description: khachhang data
+        in: body
+        name: khachhang
+        required: true
+        schema:
+          $ref: '#/definitions/models.KhachHang'
+      produces:
+      - application/json
+      responses: {}
+      summary: Thêm khách hàng
+      tags:
+      - Khách hàng
+  /khachhang/{ma_kh}:
+    delete:
+      consumes:
+      - application/json
+      description: Xóa khách hàng theo mã khách hàng
+      parameters:
+      - description: MaHH
+        in: path
+        name: ma_kh
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Xóa khách hàng theo mã khách hàng
+      tags:
+      - Khách hàng
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị khách hàng theo mã khách hàng
+      parameters:
+      - description: MaHH
+        in: path
+        name: ma_kh
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị khách hàng theo mã khách hàng
+      tags:
+      - Khách hàng
+    put:
+      consumes:
+      - application/json
+      description: Chỉnh sửa khách hàng theo mã khách hàng
+      parameters:
+      - description: MaHH
+        in: path
+        name: ma_kh
+        required: true
+        type: integer
+      - description: khachhang data
+        in: body
+        name: khachhang
+        required: true
+        schema:
+          $ref: '#/definitions/models.KhachHang'
+      produces:
+      - application/json
+      responses: {}
+      summary: Chỉnh sửa khách hàng theo mã khách hàng
+      tags:
+      - Khách hàng
+  /loai/:
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị tất cả các loại hàng hóa
+      produces:
+      - application/json
+      responses: {}
+      summary: Lấy ra tất cả các loại hàng hóa
+      tags:
+      - Loại
+    post:
+      consumes:
+      - application/json
+      description: Thêm loại hàng hóa
+      parameters:
+      - description: Loai data
+        in: body
+        name: loai
+        required: true
+        schema:
+          $ref: '#/definitions/models.Loai'
+      produces:
+      - application/json
+      responses: {}
+      summary: Thêm Loại
+      tags:
+      - Loại
+  /loai/{ma_loai}:
+    delete:
+      consumes:
+      - application/json
+      description: Xóa loại hàng hóa theo mã hàng hóa
+      parameters:
+      - description: Maloai
+        in: path
+        name: ma_loai
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Xóa loại hàng hóa
+      tags:
+      - Loại
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị loại hàng hóa theo mã hàng hóa
+      parameters:
+      - description: MaLoai
+        in: path
+        name: ma_loai
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Lấy loại hàng hóa theo mã hàng hóa
+      tags:
+      - Loại
+    put:
+      consumes:
+      - application/json
+      description: Chỉnh sửa loại hàng hóa theo mã hàng hóa
+      parameters:
+      - description: MaLoai
+        in: path
+        name: ma_loai
+        required: true
+        type: integer
+      - description: Loai data
+        in: body
+        name: loai
+        required: true
+        schema:
+          $ref: '#/definitions/models.Loai'
+      produces:
+      - application/json
+      responses: {}
+      summary: Sửa loại hàng hóa theo mã hàng hóa
+      tags:
+      - Loại
+  /nhacungcap/:
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị tất nhà cung cấp cho hàng hóa
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị nhà cung cấp
+      tags:
+      - Nhà Cung Cấp
+    post:
+      consumes:
+      - application/json
+      description: Thêm nhà cung cấp cho hàng hóa
+      parameters:
+      - description: NhaCungCap data
+        in: body
+        name: nhacungcap
+        required: true
+        schema:
+          $ref: '#/definitions/models.NhaCungCap'
+      produces:
+      - application/json
+      responses: {}
+      summary: Tạo nhà cung cấp
+      tags:
+      - Nhà Cung Cấp
+  /nhacungcap/{ma_ncc}:
+    delete:
+      consumes:
+      - application/json
+      description: Xóa nhà cung cấp theo mã nhà cung cấp
+      parameters:
+      - description: MaNCC
+        in: path
+        name: nhacungcap
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Xóa nhà cung cấp theo mã nhà cung cấp
+      tags:
+      - Nhà Cung Cấp
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị nhà cung cấp theo mã nhà cung cấp
+      parameters:
+      - description: MaNCC
+        in: path
+        name: nhacungcap
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị nhà cung cấp theo mã nhà cung cấp
+      tags:
+      - Nhà Cung Cấp
+    put:
+      consumes:
+      - application/json
+      description: Chỉnh sửa nhà cung cấp theo mã nhà cung cấp
+      parameters:
+      - description: MaNCC
+        in: path
+        name: nhacungcap
+        required: true
+        type: integer
+      - description: NhaCungCap data
+        in: body
+        name: nhacungcap
+        required: true
+        schema:
+          $ref: '#/definitions/models.NhaCungCap'
+      produces:
+      - application/json
+      responses: {}
+      summary: Chỉnh sửa nhà cung cấp theo mã nhà cung cấp
+      tags:
+      - Nhà Cung Cấp
+  /nhanvien/:
+    get:
+      responses: {}
+      summary: Hiển thị danh sách nhân viên
+      tags:
+      - Nhân Viên
+    post:
+      parameters:
+      - description: NhanVien data
+        in: body
+        name: nhanvien
+        required: true
+        schema:
+          $ref: '#/definitions/models.NhanVien'
+      responses: {}
+      summary: Tạo tài khoản cho nhân viên
+      tags:
+      - Nhân Viên
+  /trangthai/:
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị trạng thái
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị trạng thái
+      tags:
+      - Trạng thái
+    post:
+      consumes:
+      - application/json
+      description: Thêm trạng thái
+      parameters:
+      - description: TrangThai data
+        in: body
+        name: trangthai
+        required: true
+        schema:
+          $ref: '#/definitions/models.TrangThai'
+      produces:
+      - application/json
+      responses: {}
+      summary: Thêm trạng thái
+      tags:
+      - Trạng thái
+  /trangthai/{ma_trang_thai}:
+    delete:
+      consumes:
+      - application/json
+      description: Xóa trạng thái theo mã trạng thái
+      parameters:
+      - description: MaTrangThai
+        in: path
+        name: ma_trang_thai
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Xóa trạng thái theo mã trạng thái
+      tags:
+      - Trạng thái
+    get:
+      consumes:
+      - application/json
+      description: Hiển thị trạng thái theo mã trạng thái
+      parameters:
+      - description: MaTrangThai
+        in: path
+        name: ma_trang_thai
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Hiển thị trạng thái theo mã trạng thái
+      tags:
+      - Trạng thái
+    put:
+      consumes:
+      - application/json
+      description: Chỉnh sửa trạng thái theo mã trạng thái
+      parameters:
+      - description: ma_trang_thai
+        in: path
+        name: ma_trang_thai
+        required: true
+        type: integer
+      - description: TrangThai data
+        in: body
+        name: trangthai
+        required: true
+        schema:
+          $ref: '#/definitions/models.TrangThai'
+      produces:
+      - application/json
+      responses: {}
+      summary: Chỉnh sửa trạng thái theo mã trạng thái
+      tags:
+      - Trạng thái
+swagger: "2.0"

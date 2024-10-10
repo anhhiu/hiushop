@@ -1,0 +1,1011 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/chitiethoadon/": {
+            "get": {
+                "tags": [
+                    "Chi tiết hóa đơn"
+                ],
+                "summary": "Hiển thị tất cả các hóa đơn",
+                "responses": {}
+            },
+            "post": {
+                "tags": [
+                    "Chi tiết hóa đơn"
+                ],
+                "summary": "Thêm hóa đơn chi tiết",
+                "parameters": [
+                    {
+                        "description": "ChiTietHD data",
+                        "name": "chitiethd",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ChiTietHD"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/chitiethoadon/{ma_ct}": {
+            "get": {
+                "tags": [
+                    "Chi tiết hóa đơn"
+                ],
+                "summary": "Hiển thị tất cả các chi tiết hóa đơn theo id",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHD",
+                        "name": "ma_ct",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/hanghoa/": {
+            "get": {
+                "description": "Hiển thị hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Hàng hóa"
+                ],
+                "summary": "Hiển thị hàng hóa",
+                "responses": {}
+            },
+            "post": {
+                "description": "Thêm hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Hàng hóa"
+                ],
+                "summary": "Thêm hàng hóa",
+                "parameters": [
+                    {
+                        "description": "HangHoa data",
+                        "name": "hanghoa",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HangHoa"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/hanghoa/{ma_hh}": {
+            "get": {
+                "description": "Hiển thị hàng hóa theo mã hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Hàng hóa"
+                ],
+                "summary": "Hiển thị hàng hóa theo mã hàng hóa",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHH",
+                        "name": "ma_hh",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "Chỉnh sửa hàng hóa theo mã hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Hàng hóa"
+                ],
+                "summary": "Chỉnh sửa hàng hóa theo mã hàng hóa",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHH",
+                        "name": "ma_hh",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "HangHoa data",
+                        "name": "hanghoa",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HangHoa"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Xóa hàng hóa theo mãhàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Hàng hóa"
+                ],
+                "summary": "Xóa hàng hóa theo mã hàng hóa",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHH",
+                        "name": "ma_hh",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/hoadon/": {
+            "get": {
+                "tags": [
+                    "Hóa đơn"
+                ],
+                "summary": "Hiển thị tất cả hóa đơn",
+                "responses": {}
+            },
+            "post": {
+                "tags": [
+                    "Hóa đơn"
+                ],
+                "summary": "Tạo Hóa Đơn",
+                "parameters": [
+                    {
+                        "description": "HoaDon data",
+                        "name": "hoadon",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HoaDon"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/hoadon/{ma_hd}": {
+            "get": {
+                "tags": [
+                    "Hóa đơn"
+                ],
+                "summary": "Hiển thị hóa đơn theo mã hóa đơn",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHD",
+                        "name": "ma_hd",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "tags": [
+                    "Hóa đơn"
+                ],
+                "summary": "Sửa hóa đơn theo mã hóa đơn",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHD",
+                        "name": "ma_hd",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "HoaDon data",
+                        "name": "hoadon",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HoaDon"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "tags": [
+                    "Hóa đơn"
+                ],
+                "summary": "Xóa hóa đơn theo mã hóa đơn",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHD",
+                        "name": "ma_hd",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/khachhang/": {
+            "get": {
+                "description": "Hiển thị khách hàng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Khách hàng"
+                ],
+                "summary": "Hiển thị khách hàng",
+                "responses": {}
+            },
+            "post": {
+                "description": "Thêm khách hàng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Khách hàng"
+                ],
+                "summary": "Thêm khách hàng",
+                "parameters": [
+                    {
+                        "description": "khachhang data",
+                        "name": "khachhang",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.KhachHang"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/khachhang/{ma_kh}": {
+            "get": {
+                "description": "Hiển thị khách hàng theo mã khách hàng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Khách hàng"
+                ],
+                "summary": "Hiển thị khách hàng theo mã khách hàng",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHH",
+                        "name": "ma_kh",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "Chỉnh sửa khách hàng theo mã khách hàng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Khách hàng"
+                ],
+                "summary": "Chỉnh sửa khách hàng theo mã khách hàng",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHH",
+                        "name": "ma_kh",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "khachhang data",
+                        "name": "khachhang",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.KhachHang"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Xóa khách hàng theo mã khách hàng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Khách hàng"
+                ],
+                "summary": "Xóa khách hàng theo mã khách hàng",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaHH",
+                        "name": "ma_kh",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/loai/": {
+            "get": {
+                "description": "Hiển thị tất cả các loại hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Loại"
+                ],
+                "summary": "Lấy ra tất cả các loại hàng hóa",
+                "responses": {}
+            },
+            "post": {
+                "description": "Thêm loại hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Loại"
+                ],
+                "summary": "Thêm Loại",
+                "parameters": [
+                    {
+                        "description": "Loai data",
+                        "name": "loai",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Loai"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/loai/{ma_loai}": {
+            "get": {
+                "description": "Hiển thị loại hàng hóa theo mã hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Loại"
+                ],
+                "summary": "Lấy loại hàng hóa theo mã hàng hóa",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaLoai",
+                        "name": "ma_loai",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "Chỉnh sửa loại hàng hóa theo mã hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Loại"
+                ],
+                "summary": "Sửa loại hàng hóa theo mã hàng hóa",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaLoai",
+                        "name": "ma_loai",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Loai data",
+                        "name": "loai",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Loai"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Xóa loại hàng hóa theo mã hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Loại"
+                ],
+                "summary": "Xóa loại hàng hóa",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Maloai",
+                        "name": "ma_loai",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/nhacungcap/": {
+            "get": {
+                "description": "Hiển thị tất nhà cung cấp cho hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nhà Cung Cấp"
+                ],
+                "summary": "Hiển thị nhà cung cấp",
+                "responses": {}
+            },
+            "post": {
+                "description": "Thêm nhà cung cấp cho hàng hóa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nhà Cung Cấp"
+                ],
+                "summary": "Tạo nhà cung cấp",
+                "parameters": [
+                    {
+                        "description": "NhaCungCap data",
+                        "name": "nhacungcap",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.NhaCungCap"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/nhacungcap/{ma_ncc}": {
+            "get": {
+                "description": "Hiển thị nhà cung cấp theo mã nhà cung cấp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nhà Cung Cấp"
+                ],
+                "summary": "Hiển thị nhà cung cấp theo mã nhà cung cấp",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaNCC",
+                        "name": "nhacungcap",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "Chỉnh sửa nhà cung cấp theo mã nhà cung cấp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nhà Cung Cấp"
+                ],
+                "summary": "Chỉnh sửa nhà cung cấp theo mã nhà cung cấp",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaNCC",
+                        "name": "nhacungcap",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "NhaCungCap data",
+                        "name": "nhacungcap",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.NhaCungCap"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Xóa nhà cung cấp theo mã nhà cung cấp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nhà Cung Cấp"
+                ],
+                "summary": "Xóa nhà cung cấp theo mã nhà cung cấp",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaNCC",
+                        "name": "nhacungcap",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/nhanvien/": {
+            "get": {
+                "tags": [
+                    "Nhân Viên"
+                ],
+                "summary": "Hiển thị danh sách nhân viên",
+                "responses": {}
+            },
+            "post": {
+                "tags": [
+                    "Nhân Viên"
+                ],
+                "summary": "Tạo tài khoản cho nhân viên",
+                "parameters": [
+                    {
+                        "description": "NhanVien data",
+                        "name": "nhanvien",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.NhanVien"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/trangthai/": {
+            "get": {
+                "description": "Hiển thị trạng thái",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trạng thái"
+                ],
+                "summary": "Hiển thị trạng thái",
+                "responses": {}
+            },
+            "post": {
+                "description": "Thêm trạng thái",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trạng thái"
+                ],
+                "summary": "Thêm trạng thái",
+                "parameters": [
+                    {
+                        "description": "TrangThai data",
+                        "name": "trangthai",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TrangThai"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/trangthai/{ma_trang_thai}": {
+            "get": {
+                "description": "Hiển thị trạng thái theo mã trạng thái",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trạng thái"
+                ],
+                "summary": "Hiển thị trạng thái theo mã trạng thái",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaTrangThai",
+                        "name": "ma_trang_thai",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "Chỉnh sửa trạng thái theo mã trạng thái",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trạng thái"
+                ],
+                "summary": "Chỉnh sửa trạng thái theo mã trạng thái",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ma_trang_thai",
+                        "name": "ma_trang_thai",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "TrangThai data",
+                        "name": "trangthai",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TrangThai"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Xóa trạng thái theo mã trạng thái",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trạng thái"
+                ],
+                "summary": "Xóa trạng thái theo mã trạng thái",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "MaTrangThai",
+                        "name": "ma_trang_thai",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "models.ChiTietHD": {
+            "type": "object",
+            "properties": {
+                "don_gia": {
+                    "type": "number"
+                },
+                "giam_gia": {
+                    "type": "number"
+                },
+                "hang_hoa": {
+                    "$ref": "#/definitions/models.HangHoa"
+                },
+                "hoa_don": {
+                    "$ref": "#/definitions/models.HoaDon"
+                },
+                "ma_ct": {
+                    "type": "integer"
+                },
+                "ma_hd": {
+                    "type": "integer"
+                },
+                "ma_hh": {
+                    "type": "integer"
+                },
+                "so_luong": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.HangHoa": {
+            "type": "object",
+            "properties": {
+                "don_gia": {
+                    "type": "number"
+                },
+                "giam_gia": {
+                    "type": "number"
+                },
+                "hinh": {
+                    "type": "string"
+                },
+                "loai": {
+                    "$ref": "#/definitions/models.Loai"
+                },
+                "ma_hh": {
+                    "type": "integer"
+                },
+                "ma_loai": {
+                    "type": "integer"
+                },
+                "ma_ncc": {
+                    "type": "integer"
+                },
+                "mo_ta": {
+                    "type": "string"
+                },
+                "mo_ta_don_vi": {
+                    "type": "string"
+                },
+                "ngay_sx": {
+                    "type": "string"
+                },
+                "nha_cung_cap": {
+                    "$ref": "#/definitions/models.NhaCungCap"
+                },
+                "so_lan_xem": {
+                    "type": "integer"
+                },
+                "ten_alias": {
+                    "type": "string"
+                },
+                "ten_hh": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.HoaDon": {
+            "type": "object",
+            "properties": {
+                "cach_thanh_toan": {
+                    "type": "string"
+                },
+                "cach_van_chuyen": {
+                    "type": "string"
+                },
+                "dia_chi": {
+                    "type": "string"
+                },
+                "ghi_chu": {
+                    "type": "string"
+                },
+                "ho_ten": {
+                    "type": "string"
+                },
+                "khach_hang": {
+                    "$ref": "#/definitions/models.KhachHang"
+                },
+                "ma_hd": {
+                    "type": "integer"
+                },
+                "ma_kh": {
+                    "type": "integer"
+                },
+                "ma_nv": {
+                    "type": "integer"
+                },
+                "ma_trang_thai": {
+                    "type": "integer"
+                },
+                "ngay_can": {
+                    "type": "string"
+                },
+                "ngay_dat": {
+                    "type": "string"
+                },
+                "ngay_giao": {
+                    "type": "string"
+                },
+                "nhan_vien": {
+                    "$ref": "#/definitions/models.NhanVien"
+                },
+                "phi_van_chuyen": {
+                    "type": "number"
+                },
+                "trang_thai": {
+                    "$ref": "#/definitions/models.TrangThai"
+                }
+            }
+        },
+        "models.KhachHang": {
+            "type": "object",
+            "properties": {
+                "dia_chi": {
+                    "type": "string"
+                },
+                "dien_thoai": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "gioi_tinh": {
+                    "type": "string"
+                },
+                "ho_ten": {
+                    "type": "string"
+                },
+                "ma_kh": {
+                    "type": "integer"
+                },
+                "ngay_sinh": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Loai": {
+            "type": "object",
+            "properties": {
+                "hinh": {
+                    "type": "string"
+                },
+                "ma_loai": {
+                    "type": "integer"
+                },
+                "mo_ta": {
+                    "type": "string"
+                },
+                "ten_loai": {
+                    "type": "string"
+                },
+                "ten_loai_alias": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.NhaCungCap": {
+            "type": "object",
+            "properties": {
+                "dia_chi": {
+                    "type": "string"
+                },
+                "dien_thoai": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "ma_ncc": {
+                    "type": "integer"
+                },
+                "mo_ta": {
+                    "type": "string"
+                },
+                "nguoi_lien_lac": {
+                    "type": "string"
+                },
+                "ten_cong_ty": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.NhanVien": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "ho_ten": {
+                    "type": "string"
+                },
+                "ma_nv": {
+                    "type": "integer"
+                },
+                "mat_khau": {
+                    "type": "string"
+                },
+                "tai_khoan": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.TrangThai": {
+            "type": "object",
+            "properties": {
+                "ma_trang_thai": {
+                    "type": "integer"
+                },
+                "mo_ta": {
+                    "type": "string"
+                },
+                "ten_trang_thai": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
